@@ -36,26 +36,37 @@ const Students = () => {
 
 
 
+
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-gray-900">Students</h1>
-        {selectedStudents.length > 0 && (
-          <div className="flex space-x-4">
-            <button
-              onClick={handleBulkOrder}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-            >
-              Place Bulk Order ({selectedStudents.length} students)
-            </button>
-            <button
-              onClick={() => setSelectedStudents([])}
-              className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700"
-            >
-              Clear Selection
-            </button>
-          </div>
-        )}
+        <div className="flex space-x-4">
+          <button
+            onClick={() => navigate('/students/add')}
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center space-x-2"
+          >
+            <span>+</span>
+            <span>Add New Student</span>
+          </button>
+          {selectedStudents.length > 0 && (
+            <>
+              <button
+                onClick={handleBulkOrder}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                Place Bulk Order ({selectedStudents.length} students)
+              </button>
+              <button
+                onClick={() => setSelectedStudents([])}
+                className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700"
+              >
+                Clear Selection
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Bulk Order Modal */}
@@ -87,6 +98,8 @@ const Students = () => {
           </div>
         </div>
       )}
+
+
       
       <div className="bg-white rounded-lg shadow-md">
         <div className="px-6 py-4 border-b border-gray-200">

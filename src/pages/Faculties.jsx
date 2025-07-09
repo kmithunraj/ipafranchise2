@@ -11,9 +11,20 @@ const Faculties = () => {
     navigate(`/faculties/${faculty.id}`, { state: { faculty } });
   };
 
+
+
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900">Faculties</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold text-gray-900">Faculties</h1>
+        <button
+          onClick={() => navigate('/faculties/add')}
+          className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center space-x-2"
+        >
+          <span>+</span>
+          <span>Add New Faculty</span>
+        </button>
+      </div>
       
       <div className="bg-white rounded-lg shadow-md">
         <div className="px-6 py-4 border-b border-gray-200">
@@ -77,6 +88,8 @@ const Faculties = () => {
           </table>
         </div>
       </div>
+
+
     </div>
   );
 };
